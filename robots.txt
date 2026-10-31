@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kingdomcultureclub.co.za/sitemap.xml

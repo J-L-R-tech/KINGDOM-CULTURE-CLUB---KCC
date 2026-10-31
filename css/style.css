@@ -1,0 +1,323 @@
+/* ==========================================
+   1. CSS RESET & BASE STYLES
+   ========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* Color Palette */
+    --primary-bg: #121212;
+    --secondary-bg: #1e1e1e;
+    --card-bg: #282828;
+    --accent-gold: #d4af37;
+    --accent-gold-hover: #b89628;
+    --text-light: #f4f4f4;
+    --text-muted: #a0a0a0;
+    --border-color: #333333;
+    --error-red: #e74c3c;
+    
+    /* Typography & Spacing */
+    --font-heading: 'Montserrat', Arial, sans-serif;
+    --font-body: 'Open Sans', Arial, sans-serif;
+    --base-spacing: 1rem;
+}
+
+html {
+    font-size: 100%; /* 16px default */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--primary-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   2. TYPOGRAPHY STYLES
+   ========================================== */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--accent-gold);
+    margin-bottom: 0.75rem;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.35rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-gold-hover);
+}
+
+/* ==========================================
+   3. HEADER & NAVIGATION (Flexbox Layout)
+   ========================================== */
+header {
+    background-color: var(--secondary-bg);
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+}
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--card-bg);
+    color: var(--accent-gold);
+    outline: none;
+}
+
+nav a:active {
+    transform: scale(0.96);
+}
+
+/* ==========================================
+   4. MAIN CONTENT & GRID LAYOUTS
+   ========================================== */
+main {
+    flex: 1;
+    max-width: 1200px;
+    width: 90%;
+    margin: 2rem auto;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/hero-bg.jpg') center/cover no-repeat;
+    padding: 4rem 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    border: 1px solid var(--border-color);
+}
+
+.hero h2 {
+    font-size: 2.2rem;
+    color: #ffffff;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--accent-gold-hover);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:active {
+    transform: translateY(2px);
+}
+
+/* Multi-Column Grid Layout for Desktop */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Card Visual Styles */
+.card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent-gold);
+}
+
+/* Responsive Image Container */
+.responsive-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* ==========================================
+   5. FORM STYLING (Enquiry & Contact)
+   ========================================== */
+form {
+    background-color: var(--secondary-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.85rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--accent-gold-hover);
+}
+
+/* ==========================================
+   6. FOOTER STYLING
+   ========================================== */
+footer {
+    background-color: var(--secondary-bg);
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   7. RESPONSIVE DESIGN & MEDIA QUERIES
+   ========================================== */
+
+/* Tablet Breakpoint (Up to 768px) */
+@media screen and (max-width: 768px) {
+    h1 { font-size: 1.85rem; }
+    h2 { font-size: 1.45rem; }
+
+    main {
+        width: 95%;
+        margin: 1.5rem auto;
+    }
+
+    .hero {
+        padding: 2.5rem 1rem;
+    }
+
+    nav ul {
+        gap: 0.75rem;
+    }
+}
+
+/* Mobile Breakpoint (Up to 480px) */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        display: block;
+        padding: 0.6rem;
+        background-color: var(--card-bg);
+        border-radius: 4px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; /* Switch to single-column layout */
+    }
+
+    form {
+        padding: 1.25rem;
+    }
+}
